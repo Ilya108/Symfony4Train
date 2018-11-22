@@ -1,0 +1,35 @@
+header:
+  menu:
+    homepage: Accueil
+    logIn: Se connecter
+    signOn: S'inscrire
+    search: Rechercher
+    logOut: Se déconnecter
+    menu: Menu
+    languages: Languages
+    fr: FR
+    en: EN
+
+homepage:
+  content:
+    welcome: Bienvenue !
+    learnMore: En savoir plus
+    viewDetails: Lire la suite
+
+login:
+  singInPlease: Veuillez vous connecter
+  email: Email
+  password: Mot de passe
+  forgotPassword: Mot de passe oublié?
+  rememberMe: Se souvenir de moi
+
+register:
+  username: Nom d'utilisateur
+  password: Mot de passe
+  email: Adresse email
+  repetePassword: Confirmer le mot de passe
+  registerBtn: S'inscrire
+  registerTitle: Création d'un copmte
+
+
+

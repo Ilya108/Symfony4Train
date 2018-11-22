@@ -1,0 +1,34 @@
+header:
+  menu:
+    homepage: Homepage
+    logIn: Log In
+    signOn: Sign On
+    search: Search
+    logOut: Log Out
+    menu: Menu
+    languages: Languages
+    fr: FR
+    en: EN
+
+homepage:
+  content:
+    welcome: Welcome !
+    learnMore: Learn more
+    viewDetails: View details
+
+login:
+  singInPlease: Sing in please
+  email: Email
+  password: Password
+  forgotPassword: Forgot password?
+  rememberMe: Remember me
+
+register:
+  username: Username
+  password: Password
+  email: Email
+  repetePassword: Repete password
+  registerBtn: Register!
+  registerTitle: Create Account
+
+

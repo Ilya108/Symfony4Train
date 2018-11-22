@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #cdced4;">
+    <a class="navbar-brand" href="#">Site de Ilya</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('home') }}">{{ 'header.menu.homepage'|trans({}, "homepage") }}<span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ 'header.menu.menu'|trans({}, "homepage") }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('product_index') }}">Produits</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            {% if not app.user %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('security_login') }}">{{ 'header.menu.logIn'|trans({}, "homepage") }}</a>
+                </li>
+            {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('security_logout') }}">{{ 'header.menu.logOut'|trans({}, "homepage") }}</a>
+                </li>
+            {% endif %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('security_registration') }}">{{ 'header.menu.signOn'|trans({}, "homepage") }}</a>
+            </li>
+        </ul>
+
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'header.menu.languages'|trans({}, "homepage") }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ path('security_switch_locale', {'language': 'fr'}) }}">{{ 'header.menu.fr'|trans({}, "homepage") }}</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ path('security_switch_locale', {'language': 'en'}) }}">{{ 'header.menu.en'|trans({}, "homepage") }}</a>
+            </div>
+        </div>
+
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="{{ 'header.menu.search'|trans({}, "homepage") }}" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{ 'header.menu.search'|trans({}, "homepage") }}</button>
+        </form>
+    </div>
+</nav>
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}" style="display:flex;justify-content: center">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

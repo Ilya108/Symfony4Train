@@ -1,0 +1,8 @@
+Symfony is great: J'aime Symfony
+
+view:
+  id: Id
+  name: Nom
+  price: Prix
+  description: Déscription
+  actions: actions
