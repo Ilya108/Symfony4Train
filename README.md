@@ -35,6 +35,21 @@ Installation des dépendences du projet avec Composer
 ```
 php bin/composer.phar install
 ```
+Création d'une base de données
+
+```
+php bin/console doctrine:database:create
+```
+Execution des migrations
+
+```
+php bin/console doctrine:migrations:migrate
+```
+Execution des fixtures
+
+```
+php bin/console doctrine:fixtures:load --no-interaction
+```
 
 Démarrage du serveur web intégré à Symfony en local sur le port 8000
 
