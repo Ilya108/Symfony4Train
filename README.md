@@ -34,14 +34,12 @@ Installation des dépendences du projet avec Composer
 
 ```
 php bin/composer.phar install
-
 ```
 
 Démarrage du serveur web intégré à Symfony en local sur le port 8000
 
 ```
 php bin/console server:run 127.0.0.1:8000
-
 ```
 
 ### PHPUnit
@@ -51,6 +49,5 @@ Outil de tests unitaires situés dans le dossier tests
 
 ```
 php ./vendor/bin/simple-phpunit
-
 ```
 
