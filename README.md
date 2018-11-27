@@ -3,7 +3,7 @@ Un projet de test sur Symfony 4
 
 ### Prérequis:
 Environnement de dev conseillé:  
-Ubuntu 18.04
+* Ubuntu 18.04
 
 Pour pouvoir lancer le projet il faut avoir PHP 7.1 et Composer installé sur l'ordinateur.
 
