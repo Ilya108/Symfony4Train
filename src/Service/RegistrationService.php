@@ -15,11 +15,20 @@ use Doctrine\ORM\EntityManager;
 use Psr\Log\LoggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
+/**
+ * Class RegistrationService
+ * @package App\Service
+ */
 class RegistrationService extends BaseService
 {
     protected $objEm;
     protected $objLogger;
 
+    /**
+     * RegistrationService constructor.
+     * @param LoggerInterface $objLogger
+     * @param EntityManagerInterface $objEm
+     */
     public function __construct(LoggerInterface $objLogger, EntityManagerInterface $objEm)
     {
         $this->objEm = $objEm;
@@ -27,7 +36,9 @@ class RegistrationService extends BaseService
     }
 
     /**
-     * Création d'un user
+     * Création d'un nouveau utilisateur
+     *
+     * @param Users $objUser
      */
     public function registerUser(Users $objUser)
     {

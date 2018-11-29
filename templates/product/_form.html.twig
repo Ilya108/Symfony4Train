@@ -1,4 +1,5 @@
+
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-primary" id="save_product">{{ 'buttons.save'|trans({}, "pages") }}</button>
 {{ form_end(form) }}

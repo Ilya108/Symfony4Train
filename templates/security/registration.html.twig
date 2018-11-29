@@ -1,18 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <h2>{{ 'register.registerTitle'|trans({}, "homepage") }}</h2>
-
-    {{ form_start(form) }}
-    {{ form_row(form.username, {'label':'register.username'|trans({}, "homepage"), attr:{'placeholder': 'register.username'|trans({}, "homepage")}}) }}
-    {{ form_row(form.email, {'label':'register.email'|trans({}, "homepage"), attr:{'placeholder': 'register.email'|trans({}, "homepage")}}) }}
-    {{ form_row(form.password, {'label':'register.password'|trans({}, "homepage"), attr:{'placeholder': 'register.password'|trans({}, "homepage")}}) }}
-    {{ form_row(form.confirm_password, {'label':'register.repetePassword'|trans({}, "homepage"), attr:{'placeholder': 'register.repetePassword'|trans({}, "homepage")}}) }}
-
-    <button type="submit" class="btn btn-success">{{ 'register.registerBtn'|trans({}, "homepage") }}</button>
-
-    {{ form_end(form) }}
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>{{ 'register.registerTitle'|trans({}, "homepage") }}</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            {{ form_start(form) }}
+            {{ form_row(form.username, {'label':'register.username'|trans({}, "homepage"), attr:{'placeholder': 'register.username'|trans({}, "homepage")}}) }}
+            {{ form_row(form.email, {'label':'register.email'|trans({}, "homepage"), attr:{'placeholder': 'register.email'|trans({}, "homepage")}}) }}
+            {{ form_row(form.password, {'label':'register.password'|trans({}, "homepage"), attr:{'placeholder': 'register.password'|trans({}, "homepage")}}) }}
+            {{ form_row(form.confirm_password, {'label':'register.repetePassword'|trans({}, "homepage"), attr:{'placeholder': 'register.repetePassword'|trans({}, "homepage")}}) }}
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-success">{{ 'register.registerBtn'|trans({}, "homepage") }}</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
 
 {% endblock %}

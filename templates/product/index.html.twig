@@ -1,40 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product index{% endblock %}
+{% block title %}{{ 'product.index_title'|trans({}, "pages") }}{% endblock %}
 
 {% block body %}
     <div class="container">
-    <h1>Product index</h1>
+    <h1>{{ 'product.index_title'|trans({}, "pages") }}</h1>
     <div class="flex-container" style="display: flex; justify-content: flex-end">
         <form class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
                 <label for="filter" class="sr-only">Password</label>
                 <input name="filter" class="form-control" type="text" >
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Filter now</button>
+            <button type="submit" class="btn btn-primary mb-2">{{ 'product.filter'|trans({}, "pages") }}</button>
         </form>
     </div>
 
-    <table class="table">
+    <table class="table table-hover">
         <thead>
                 <tr>
-                <th>{{ knp_pagination_sortable(products,'view.id'|trans({}, "messages"), 'p.name') }}</th>
-                <th>{{ knp_pagination_sortable(products,'view.name'|trans({}, "messages"), 'p.name') }}</th>
-                <th>{{ knp_pagination_sortable(products,'view.price'|trans({}, "messages"), 'p.name') }}</th>
-                <th>{{ knp_pagination_sortable(products,'view.description'|trans({}, "messages"), 'p.name') }}</th>
-                <th>{{ 'view.actions'|trans({}, "messages") }}</th>
+                <th scope="col">{{ knp_pagination_sortable(products,'view.id'|trans({}, "messages"), 'p.name') }}</th>
+                <th scope="col">{{ knp_pagination_sortable(products,'view.name'|trans({}, "messages"), 'p.name') }}</th>
+                <th scope="col">{{ knp_pagination_sortable(products,'view.price'|trans({}, "messages"), 'p.name') }}</th>
+                <th scope="col">{{ knp_pagination_sortable(products,'view.description'|trans({}, "messages"), 'p.name') }}</th>
+                <th scope="col">{{ 'view.actions'|trans({}, "messages") }}</th>
             </tr>
         </thead>
         <tbody>
         {% for product in products %}
-            <tr>
+            <tr class="table-light">
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.description }}</td>
                 <td>
-                    <a href="{{ path('product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+                    <div class="row">
+                        <div class="col-6">
+                            <a type="button" class="btn btn-primary" href="{{ path('product_show', {'id': product.id}) }}">{{ 'buttons.show'|trans({}, "pages") }}</a>
+                        </div>
+                        <div class="col-6">
+                            <a type="button" class="btn btn-primary" href="{{ path('product_edit', {'id': product.id}) }}">{{ 'buttons.edit'|trans({}, "pages") }}</a>
+                        </div>
+                    </div>
                 </td>
             </tr>
         {% else %}
@@ -48,6 +54,8 @@
         {{ knp_pagination_render(products) }}
     </div>
 
-    <a href="{{ path('product_new') }}">Create new</a>
+    <a type="button" class="btn btn-primary" href="{{ path('product_new') }}">{{ 'buttons.create_new'|trans({}, "pages") }}</a>
     </div>
+
+    <hr>
 {% endblock %}

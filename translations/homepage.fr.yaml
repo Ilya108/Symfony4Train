@@ -1,6 +1,10 @@
 header:
   menu:
+    titre: Site de Ilya
     homepage: Accueil
+    products: Produits
+    posts: Postes
+    aricles: Articles
     logIn: Se connecter
     signOn: S'inscrire
     search: Rechercher

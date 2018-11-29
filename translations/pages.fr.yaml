@@ -1,0 +1,22 @@
+buttons:
+  create_new: Créer
+  show: Afficher
+  edit: Editer
+  delete: Supprimer
+  back_list: Retour à la liste
+  save: Sauveguarder
+  update: Mettre à jour
+product:
+  index_title: List de produits
+  new_title: Créer nouveau produit
+  show_title: Produit
+  edit_title: Editer le produit
+  filter: Filtrer
+articles:
+  index_title: Articles
+  card_title: Article
+posts:
+  index_title: Postes
+  show_title: Poste
+  like: J'aime
+  dislike: Je n'aime pas

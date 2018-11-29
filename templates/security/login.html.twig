@@ -1,23 +1,39 @@
-{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link  href="{{ asset('dist/css/login.css') }}" rel="stylesheet">
+{% endblock %}
 
 {% block body %}
+
     <body>
-    <div class="container">
-    <h2>Connexion</h2>
-
+    <div class="text-center">
         <form action="{{ path('security_login') }}" method="post">
-            <div class="form-group">
-                <input placeholder="Adresse email ..." required name="_username" type="text" class="form-control">
+
+            <h2 class="h3 mb-3 font-weight-normal">{{ 'login.singInPlease'|trans({}, "homepage") }}</h2>
+
+            <label for="inputEmail" class="sr-only">{{ 'login.email'|trans({}, "homepage") }}</label>
+            <input placeholder="Adresse email ..." required name="_username" type="text" class="form-control" id="inputEmail" >
+
+            <label for="inputPassword" class="sr-only">{{ 'login.password'|trans({}, "homepage") }}</label>
+            <input placeholder="Mot de passe ..." required name="_password" type="password" class="form-control" id="inputPassword">
+            <div class="forgot">
+                <a href="">{{ 'login.forgotPassword'|trans({}, "homepage") }}</a>
             </div>
-            <div class="form-group">
-                <input placeholder="Mot de passe ..." required name="_password" type="password" class="form-control">
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> {{ 'login.rememberMe'|trans({}, "homepage") }}
+                </label>
             </div>
-            <div class="form-group">
-                <button class="btn btn-success" type="submit">Connexion</button>
-            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+
         </form>
-
     </div>
-
     </body>
 {% endblock %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

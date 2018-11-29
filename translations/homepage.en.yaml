@@ -1,6 +1,10 @@
 header:
   menu:
+    titre: Site of Ilya
     homepage: Homepage
+    products: Products
+    posts: Posts
+    aricles: Articles
     logIn: Log In
     signOn: Sign On
     search: Search
@@ -15,9 +19,10 @@ homepage:
     welcome: Welcome !
     learnMore: Learn more
     viewDetails: View details
+    title: Homepage
 
 login:
-  singInPlease: Sing in please
+  singInPlease: Please Log in
   email: Email
   password: Password
   forgotPassword: Forgot password?

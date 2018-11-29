@@ -1,34 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product{% endblock %}
+{% block title %}{{ 'product.show_title'|trans({}, "pages") }}{% endblock %}
 
 {% block body %}
-    <h1>Product</h1>
+    <h1>{{ 'product.show_title'|trans({}, "pages") }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ 'view.id'|trans({}, "messages") }}</th>
                 <td>{{ product.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>{{ 'view.name'|trans({}, "messages") }}</th>
                 <td>{{ product.name }}</td>
             </tr>
             <tr>
-                <th>Price</th>
+                <th>{{ 'view.price'|trans({}, "messages") }}</th>
                 <td>{{ product.price }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th>{{ 'view.description'|trans({}, "messages") }}</th>
                 <td>{{ product.description }}</td>
             </tr>
         </tbody>
     </table>
+    <div class="row">
+        <div class="col-auto">
+            <a type="button" class="btn btn-primary" href="{{ path('product_edit', {'id': product.id}) }}">{{ 'buttons.edit'|trans({}, "pages") }}</a>
+        </div>
+        <div class="col-auto">
+            {{ include('product/_delete_form.html.twig') }}
+        </div>
+        <div class="col-auto">
+            <a type="button" class="btn btn-primary" href="{{ path('product_index') }}">{{ 'buttons.back_list'|trans({}, "pages") }}</a>
+        </div>
+    </div>
 
-    <a href="{{ path('product_index') }}">back to list</a>
 
-    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
-
-    {{ include('product/_delete_form.html.twig') }}
 {% endblock %}

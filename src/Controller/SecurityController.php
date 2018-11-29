@@ -12,11 +12,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+/**
+ * Class SecurityController
+ * @package App\Controller
+ */
 class SecurityController extends AbstractController
 {
     private $objRegistrationService;
     protected $objLogger;
 
+    /**
+     * SecurityController constructor.
+     * @param RegistrationService $objRegistrationService
+     * @param LoggerInterface $objLogger
+     */
     public function __construct(RegistrationService $objRegistrationService, LoggerInterface $objLogger)
     {
         $this->objRegistrationService = $objRegistrationService;
@@ -26,10 +35,15 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/inscription", name="security_registration")
+     *
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @param UserPasswordEncoderInterface $encoder
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
     {
-        $this->objLogger->debug('RegistrationController:registration - debut');
+        $this->objLogger->debug('SecurityController:registration - debut');
 
         $user = new Users();
 
@@ -49,7 +63,7 @@ class SecurityController extends AbstractController
                 'notice',
                 'Votre compte a été crée'
             );
-            $this->objLogger->debug('RegistrationController:registration - fin');
+            $this->objLogger->debug('SecurityController:registration - fin');
 
             return $this->redirectToRoute('security_login');
         }
@@ -60,17 +74,26 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * Changer la langue courrante.
+     * La méthode pour switcher la langue du site
      *
      * @Route("/local/{language}", name="security_switch_locale")
+     *
+     * @param Request $request
+     * @param null $language
+     * @param LoggerInterface $objLogger
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function switchLocale(Request $request, $language = null, LoggerInterface $objLogger)
     {
+        $this->objLogger->debug('SecurityController:switchLocale - debut');
+
         if (null != $language) {
             $this->get('session')->set('_locale', $language);
         }
 
         $referer = $request->headers->get('referer');
+        $this->objLogger->debug('SecurityController:switchLocale - fin');
+
 
         return $this->redirect($referer);
     }
